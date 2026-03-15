@@ -1,2 +1,6 @@
 # Municipal-solid-waste
-![ASEAN Waste](asean_msw_per_capita.png)
+## ASEAN Municipal Solid Waste per Capita
+![ASEAN MSW](assets/asean_msw_per_capita.png)
+
+## ASEAN Annual Municipal Solid Waste
+![ASEAN MSW](assets/asean_annual_msw.png)
