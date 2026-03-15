@@ -4,3 +4,6 @@
 
 ## ASEAN Annual Municipal Solid Waste
 ![ASEAN MSW](assets/asean_annual_msw.png)
+
+## Thailand MSW Trend
+![ASEAN MSW](assets/thailand_msw_trend.png)
