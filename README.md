@@ -7,3 +7,6 @@
 
 ## Thailand MSW Trend
 ![ASEAN MSW](assets/thailand_msw_trend.png)
+
+## Thailand MSW by Region
+![ASEAN MSW](assets/thailand_msw_region.png)
