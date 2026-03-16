@@ -10,3 +10,15 @@
 
 ## Thailand MSW by Region
 ![ASEAN MSW](assets/thailand_msw_region.png)
+
+## Thailand MSW per capital by Region
+![ASEAN MSW](assets/thailand_waste_per_capita_region.png)
+
+## Thailand MSW per area by Region
+![ASEAN MSW](assets/thailand_waste_per_area.png)
+
+## Top5 MSW Trend
+![ASEAN MSW](assets/top5_waste_trend.png)
+
+## Bottom5 MSW Trend
+![ASEAN MSW](assets/bottom5_waste_trend.png)
