@@ -34,3 +34,9 @@
 
 ## Bottom5 Residual waste trend
 ![ASEAN MSW](assets/residual_waste_trend_bottom5.png)
+
+## Top5 Disposal capacity trend
+![ASEAN MSW](assets/top5_disposal_capacity_trend.png)
+
+## Bottom5 Disposal capacity trend
+![ASEAN MSW](assets/bottom5_disposal_capacity_trend.png)
