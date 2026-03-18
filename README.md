@@ -43,3 +43,6 @@
 
 ## Disposal waste vs Site
 ![ASEAN MSW](assets/dual_axis_waste_vs_sites.png)
+
+## GPP, Factory, Tourist vs Waste by Region (2566)
+![ASEAN MSW](assets/Waste_vs_Economic_Factors_by_Region_(2566).png)
