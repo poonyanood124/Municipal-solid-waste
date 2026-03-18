@@ -40,3 +40,6 @@
 
 ## Bottom5 Disposal capacity trend
 ![ASEAN MSW](assets/bottom5_disposal_capacity_trend.png)
+
+## Disposal waste vs Site
+![ASEAN MSW](assets/dual_axis_waste_vs_sites.png)
