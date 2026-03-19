@@ -72,6 +72,12 @@
 ## Disposal waste vs Site
 ![ASEAN MSW](assets/dual_axis_waste_vs_sites.png)
 
+## Residual Waste vs Waste Generated
+![ASEAN MSW](assets/Residual_Waste_vs_Waste_Generated_by_Region_(2563–2567).png)
+
+## Waste Summary 
+![ASEAN MSW](assets/Regional_Waste_Dashboard_Comparison.png)
+
 ## <mark>Municipal solid waste: Past management structures and Current burden
 
 ## <mark>Municipal solid waste and Disparities
