@@ -2,11 +2,16 @@
 
 ## <mark>The expansion of municipal solid waste
 
-## Graph 1 ASEAN Municipal Solid Waste per Capita
-![ASEAN MSW](assets/asean_msw_per_capita.png)
-
-## Graph 2 ASEAN Annual Municipal Solid Waste
-![ASEAN MSW](assets/asean_annual_msw.png)
+<table>
+  <tr>
+    <th>Graph 1: ASEAN Municipal Solid Waste per Capita</th>
+    <th>Graph 2: ASEAN Annual Municipal Solid Waste</th>
+  </tr>
+  <tr>
+    <td><img src="assets/asean_msw_per_capita.png" width="100%"></td>
+    <td><img src="assets/asean_annual_msw.png" width="100%"></td>
+  </tr>
+</table>
 
 จากกราฟที่ 1 และ 2 พบว่า ในปี 2559 ประเทศไทยมีปริมาณขยะมูลฝอยรวมประมาณ 26.77 ล้านตันต่อปี อยู่ในอันดับที่ 2 ของอาเซียน รองจากอินโดนีเซีย ขณะที่ปริมาณขยะต่อหัวประชากรอยู่ที่ประมาณ 1.05 กิโลกรัมต่อคนต่อวัน จัดอยู่ในอันดับที่ 4 ของภูมิภาค สะท้อนให้เห็นว่าประเทศไทยเป็นหนึ่งในประเทศที่มีระดับการเกิดขยะค่อนข้างสูง ทั้งในเชิงปริมาณรวมและเชิงต่อหัวประชากร
 
@@ -26,11 +31,24 @@
 ## Thailand MSW by Region
 ![ASEAN MSW](assets/thailand_msw_region.png)
 
-## Thailand MSW per capital by Region
-![ASEAN MSW](assets/thailand_waste_per_capita_region.png)
-
-## Thailand MSW per area by Region
-![ASEAN MSW](assets/thailand_waste_per_area.png)
+<table>
+  <tr>
+    <th style="text-align:center;">
+      Thailand MSW per Capita by Region
+    </th>
+    <th style="text-align:center;">
+      Thailand MSW per Area by Region
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <img src="assets/thailand_waste_per_capita_region.png" width="100%">
+    </td>
+    <td>
+      <img src="assets/thailand_waste_per_area.png" width="100%">
+    </td>
+  </tr>
+</table>)
 
 ## Top5 MSW Trend
 ![ASEAN MSW](assets/top5_waste_trend.png)
