@@ -95,6 +95,8 @@
 
 ## Waste Summary 
 ![ASEAN MSW](assets/Regional_Waste_Dashboard_Comparison.png)
+Utilization (%) = ปริมาณขยะที่ผลิต / กำลังในการกำจัดขยะ * 100
+
 
 ## <mark>Municipal solid waste: Past management structures and Current burden
 
