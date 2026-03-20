@@ -93,6 +93,9 @@
 ## Residual Waste vs Waste Generated
 ![ASEAN MSW](assets/Residual_Waste_vs_Waste_Generated_by_Region_(2563–2567).png)
 
+## Thailand Waste Management Proportion
+![ASEAN MSW](assets/Thailand_Waste_Management_Proportion.png)
+
 ## Waste Summary 
 ![ASEAN MSW](assets/Regional_Waste_Dashboard_Comparison.png)
 Utilization (%) = ปริมาณขยะที่ผลิต / กำลังในการกำจัดขยะ * 100
