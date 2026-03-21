@@ -28,16 +28,16 @@
 
 ## <mark>Sources of municipal solid waste
 
-## Thailand MSW by Region
+## Graph 4 Thailand MSW by Region
 ![ASEAN MSW](assets/thailand_msw_region.png)
 
 <table>
   <tr>
     <th style="text-align:center;">
-      Thailand MSW per Capita by Region
+      Graph 5: Thailand MSW per Capita by Region
     </th>
     <th style="text-align:center;">
-      Thailand MSW per Area by Region
+      Graph 6: Thailand MSW per Area by Region
     </th>
   </tr>
   <tr>
