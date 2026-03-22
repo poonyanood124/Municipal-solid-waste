@@ -1,6 +1,7 @@
 # =========================================================
 # 1) IMPORT & SETUP
 # =========================================================
+from matplotlib.patches import Patch
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -71,7 +72,6 @@ region_map = {
 }
 
 thai_to_eng = {
-
     # North
     "เชียงใหม่": "Chiang Mai",
     "เชียงราย": "Chiang Rai",
@@ -213,10 +213,8 @@ def load_and_sum(xls, sheet_prefix, real_col_name, new_col_name):
         sheet_name = f"{sheet_prefix}{year}"
         df = pd.read_excel(xls, sheet_name=sheet_name)
         print(f"\n===== {sheet_name} =====")
-        print(df.head())  # 👈 print ดูก่อน
-        # clean column name กันพัง
+        print(df.head())  
         df.columns = df.columns.str.strip()
-        # clean ค่า
         df[real_col_name] = df[real_col_name].apply(clean_value)
         total = df[real_col_name].sum()
         data.append({
@@ -225,15 +223,31 @@ def load_and_sum(xls, sheet_prefix, real_col_name, new_col_name):
         })
     return pd.DataFrame(data)
 
+def load_and_sum_by_region(xls, sheet_prefix, real_col_name, new_col_name):
+    data = []
+    for year in range(2563, 2568):
+        sheet_name = f"{sheet_prefix}{year}"
+        df = pd.read_excel(xls, sheet_name=sheet_name)
+        df.columns = df.columns.str.strip()
+        df[real_col_name] = df[real_col_name].apply(clean_value)
+        df["Province"] = df["Province"].str.strip()
+        df["Region"] = df["Province"].map(region_map).fillna("Other")
+        grouped = df.groupby("Region")[real_col_name].sum().reset_index()
+        for _, row in grouped.iterrows():
+            data.append({
+                "Year": year,
+                "Region": row["Region"],new_col_name: row[real_col_name]})
+    return pd.DataFrame(data)
+
 # =========================================================
 # 3. CALCULATIONS
 # =========================================================
 xls_legal = pd.ExcelFile(url_legal)
 xls_illegal = pd.ExcelFile(url_illegal)
 xls_recovery = pd.ExcelFile(url_recovery)
-df_legal = load_and_sum(xls_legal,"waste_disposal_legal","Waste_disposal_legal","Legal")
-df_illegal = load_and_sum(xls_illegal,"waste_disposal_illegal","Waste_disposal_illegal","Illegal")
-df_recovery = load_and_sum(xls_recovery,"province_waste_recovered_","Waste_recovered","Recovered")
+df_legal = load_and_sum_by_region(xls_legal, "waste_disposal_legal", "Waste_disposal_legal", "Legal")
+df_illegal = load_and_sum_by_region(xls_illegal, "waste_disposal_illegal", "Waste_disposal_illegal", "Illegal")
+df_recovery = load_and_sum_by_region(xls_recovery, "province_waste_recovered_", "Waste_recovered", "Recovered")
 
 all_region = []
 all_area = []
@@ -735,14 +749,14 @@ plt.close()
 # Graph 15 : Residual Waste vs Disposal Sites (2563–2567)
 # ---------------------------------------------------------
 fig, ax1 = plt.subplots(figsize=(12,7))
-ax1.plot(df_compare["Year"],df_compare["Residual_waste"],marker="o",linewidth=2,color="tab:pink",label="Residual Waste")
+ax1.plot(df_compare["Year"],df_compare["Residual_waste"],marker="o",linewidth=2,color="tab:pink",label="Residual Waste (ton/day)")
 ax1.set_xlabel("Year")
 ax1.set_ylabel("Residual Waste (ton)")
 ax1.set_xticks([2563, 2564, 2565, 2566, 2567])
 for x, y in zip(df_compare["Year"], df_compare["Residual_waste"]):
     ax1.annotate(f"{y:,.0f}",(x, y),textcoords="offset points",xytext=(0,8),  ha="center",fontsize=9)
 ax2 = ax1.twinx()
-ax2.plot(df_compare["Year"],df_compare["Disposal_sites"],marker="s",linewidth=2,color="tab:blue",label="Disposal Sites")
+ax2.plot(df_compare["Year"],df_compare["Disposal_sites"],marker="s",linewidth=2,color="tab:blue",label="Disposal Sites (number of sites)")
 ax2.set_ylabel("Number of Disposal Sites")
 for x, y in zip(df_compare["Year"], df_compare["Disposal_sites"]):
     ax2.annotate(f"{y}",(x, y),textcoords="offset points",xytext=(0,-12),  ha="center",fontsize=9)
@@ -778,10 +792,10 @@ def plot_dual(ax, x, y1, y2, label1, label2, color1):
     lines_2, labels_2 = ax2.get_legend_handles_labels()
     ax.legend(lines_1 + lines_2, labels_1 + labels_2, loc="upper left")
 fig, axes = plt.subplots(2, 2, figsize=(16,10))
-plot_dual(axes[0,0],df_plot2566["Region2566"],df_plot2566["Population2566"],df_plot2566["Waste2566"], "Population","Waste",color1="blue")
-plot_dual(axes[0,1],df_plot2566["Region2566"],df_plot2566["GPP2566"],df_plot2566["Waste2566"],"GPP","Waste",color1="green")
-plot_dual(axes[1,0],df_plot2566["Region2566"],df_plot2566["Factory2566"],df_plot2566["Waste2566"],"Factory","Waste",color1="purple")
-plot_dual(axes[1,1],df_plot2566["Region2566"],df_plot2566["Tourist2566"],df_plot2566["Waste2566"],"Tourist","Waste",color1="orange")
+plot_dual(axes[0,0],df_plot2566["Region2566"],df_plot2566["Population2566"],df_plot2566["Waste2566"], "Population (people)","Waste (ton/day)",color1="blue")
+plot_dual(axes[0,1],df_plot2566["Region2566"],df_plot2566["GPP2566"],df_plot2566["Waste2566"],"GPP (million THB)","Waste (ton/day)",color1="green")
+plot_dual(axes[1,0],df_plot2566["Region2566"],df_plot2566["Factory2566"],df_plot2566["Waste2566"],"Factory (number of establishments)","Waste (ton/day)",color1="purple")
+plot_dual(axes[1,1],df_plot2566["Region2566"],df_plot2566["Tourist2566"],df_plot2566["Waste2566"],"Tourist (persons)" ,"Waste (ton/day)",color1="orange")
 plt.tight_layout()
 plt.figtext(0.99,0.01,"ที่มา: กรมควบคุมมลพิษ สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ กระทรวงการท่องเที่ยวและกีฬา และสำนักบริหารการทะเบียน",ha="right",fontsize=10,style="italic",fontproperties=thai_font)
 # path16 = os.path.expanduser("~/Desktop/Waste_vs_Economic_Factors_by_Region_(2566).png")
@@ -789,7 +803,7 @@ plt.figtext(0.99,0.01,"ที่มา: กรมควบคุมมลพิ�
 plt.close()
 
 # ---------------------------------------------------------
-# Graph 17 : GPP, Factory, Tourist vs Waste by Region (2566)
+# Graph 17 : Residual Waste vs Waste Generated by Region (2563–2567)
 # ---------------------------------------------------------
 df_all_scatter = pd.DataFrame(all_data_scatter)
 ymin_scatter = df_all_scatter["Residual"].min()
@@ -810,13 +824,13 @@ for i, region in enumerate(regions_scatter):
     ax_scatter.set_title(region)
     ax_scatter.set_xticks(df_region_scatter["Year"])
     ax_scatter.set_xlabel("Year")
-    ax_scatter.set_ylabel("Residual")
+    ax_scatter.set_ylabel("Residual Waste (ton/day)")
     ax_scatter.grid()
 fig_scatter.suptitle("Residual Waste vs Waste Generated by Region (2563–2567)\nBubble Size = Waste Generated",fontsize=16)
 plt.figtext(0.99,0.01,"ที่มา: กรมควบคุมมลพิษ",ha="right",fontsize=10,style="italic",fontproperties=thai_font)
-plt.tight_layout(rect=[0, 0, 1, 0.95])
-path17 = os.path.expanduser("~/Desktop/Residual_Waste_vs_Waste_Generated_by_Region_(2563–2567).png")
-plt.savefig(path17, dpi=300, bbox_inches="tight", facecolor="white")
+# plt.tight_layout(rect=[0, 0, 1, 0.95])
+# path17 = os.path.expanduser("~/Desktop/Residual_Waste_vs_Waste_Generated_by_Region_(2563–2567).png")
+# plt.savefig(path17, dpi=300, bbox_inches="tight", facecolor="white")
 plt.close()
 
 # ---------------------------------------------------------
@@ -826,9 +840,9 @@ df_scatter_full = pd.DataFrame(all_data_scatter)
 df_capacity = df_all.copy()
 df_capacity["Province"] = (df_capacity["Province"].astype(str).str.replace("จังหวัด", "").str.replace("จ.", "").str.strip())
 df_capacity["Region"] = df_capacity["Province"].map(region_map)
-df_capacity_region = (df_capacity.groupby(["Year", "Region"])["Waste Quatities (ton/day)"].sum().reset_index().rename(columns={"Waste Quatities (ton/day)": "Capacity"}))
-df_dashboard = pd.merge(df_scatter_full, df_capacity_region,on=["Year", "Region"],how="left")
-df_dashboard["Utilization (%)"] = (df_dashboard["Generated"] / df_dashboard["Capacity"] * 100)
+df_capacity_region = (df_capacity.groupby(["Year", "Region"])["Waste Quatities (ton/day)"].sum().reset_index().rename(columns={"Waste Quatities (ton/day)": "Capacity (ton/day)"}))
+df_dashboard = pd.merge(df_scatter_full,df_capacity_region,on=["Year", "Region"],how="left")
+df_dashboard["Utilization (%)"] = (df_dashboard["Generated"] / df_dashboard["Capacity (ton/day)"] * 100)
 def get_status(x):
     if pd.isna(x):
         return "-"
@@ -839,13 +853,20 @@ def get_status(x):
     else:
         return "Overload"
 df_dashboard["Status"] = df_dashboard["Utilization (%)"].apply(get_status)
-df_dashboard["Generated"] = df_dashboard["Generated"].round(0)
-df_dashboard["Residual"] = df_dashboard["Residual"].round(0)
-df_dashboard["Capacity"] = df_dashboard["Capacity"].round(0)
+df_dashboard.rename(columns={"Generated": "Generated (ton/day)","Residual": "Residual (ton/day)"}, inplace=True)
+df_dashboard["Generated (ton/day)"] = df_dashboard["Generated (ton/day)"].round(0)
+df_dashboard["Residual (ton/day)"] = df_dashboard["Residual (ton/day)"].round(0)
+df_dashboard["Capacity (ton/day)"] = df_dashboard["Capacity (ton/day)"].round(0)
 df_dashboard["Utilization (%)"] = df_dashboard["Utilization (%)"].round(1)
 def draw_table(ax, df, year):
     df = df[df["Year"] == year].copy()
-    df = df[["Region","Generated","Capacity","Residual","Utilization (%)","Status"]]
+    df = df[[
+        "Region",
+        "Generated (ton/day)",
+        "Capacity (ton/day)",
+        "Residual (ton/day)",
+        "Utilization (%)",
+        "Status"]]
     max_val = df["Utilization (%)"].max()
     min_val = df["Utilization (%)"].min()
     cell_colors = []
@@ -855,16 +876,21 @@ def draw_table(ax, df, year):
             if col == "Utilization (%)":
                 val = df.iloc[i][col]
                 if val == max_val:
-                    row_colors.append("salmon")       
+                    row_colors.append("salmon")
                 elif val == min_val:
-                    row_colors.append("lightgreen")  
+                    row_colors.append("lightgreen")
                 else:
                     row_colors.append("white")
             else:
                 row_colors.append("white")
         cell_colors.append(row_colors)
     ax.axis('off')
-    table = ax.table(cellText=df.values,colLabels=df.columns,cellColours=cell_colors,loc='upper center',cellLoc='center')
+    table = ax.table(
+        cellText=df.values,
+        colLabels=df.columns,
+        cellColours=cell_colors,
+        loc='upper center',
+        cellLoc='center')
     table.auto_set_font_size(False)
     table.set_fontsize(10)
     table.scale(1, 1.5)
@@ -873,15 +899,14 @@ def draw_table(ax, df, year):
             cell.set_text_props(weight='bold')
             cell.set_facecolor("#eeeeee")
     ax.set_title(f"Year {year}", fontsize=14)
-fig, axes = plt.subplots(2, 1, figsize=(12,10))
+fig, axes = plt.subplots(2, 1, figsize=(12, 10))
 draw_table(axes[0], df_dashboard, 2563)
 draw_table(axes[1], df_dashboard, 2567)
-plt.suptitle("Regional Waste Dashboard Comparison",fontsize=16)
+plt.suptitle("Regional Waste Dashboard Comparison", fontsize=16)
 plt.tight_layout(rect=[0, 0, 1, 0.95])
-path18 = os.path.expanduser("~/Desktop/Regional_Waste_Dashboard_Comparison.png")
-plt.savefig(path18, dpi=300, bbox_inches="tight", facecolor="white")
+# path18 = os.path.expanduser("~/Desktop/Regional_Waste_Dashboard_Comparison.png")
+# plt.savefig(path18, dpi=300, bbox_inches="tight", facecolor="white")
 plt.close()
-
 
 # ---------------------------------------------------------
 # Graph 19 : Thailand Waste Management Proportion (2563–2567)
@@ -914,6 +939,64 @@ plt.gca().set_facecolor("#e6f2ff")
 plt.grid(color='white', linestyle='--', linewidth=1)  
 plt.tight_layout()
 plt.figtext(0.99,0.01,"ที่มา: กรมควบคุมมลพิษ",ha="right",fontsize=10,style="italic",fontproperties=thai_font)
-path19 = os.path.expanduser("~/Desktop/Thailand_Waste_Management_Proportion.png")
-plt.savefig(path19, dpi=300, bbox_inches="tight", facecolor="white")
+# path19 = os.path.expanduser("~/Desktop/Thailand_Waste_Management_Proportion.png")
+# plt.savefig(path19, dpi=300, bbox_inches="tight", facecolor="white")
+plt.close()
+
+# ---------------------------------------------------------
+# Graph 20 : Thailand Waste Management Proportion (2563–2567)
+# ---------------------------------------------------------
+df = df_legal.merge(df_illegal, on=["Year","Region"]) \
+             .merge(df_recovery, on=["Year","Region"])
+df["Total"] = df["Legal"] + df["Illegal"] + df["Recovered"]
+df["Legal_%"] = df["Legal"] / df["Total"] * 100
+df["Illegal_%"] = df["Illegal"] / df["Total"] * 100
+df["Recovered_%"] = df["Recovered"] / df["Total"] * 100
+sns.set_style("whitegrid")
+regions = sorted(df["Region"].unique())
+years = sorted(df["Year"].unique())
+n_regions = len(regions)
+gap = 1.5  
+x_positions = []
+x_labels = []
+year_centers = []
+plt.figure(figsize=(16,6))
+for i, year in enumerate(years):
+    sub_year = df[df["Year"] == year].sort_values("Region")
+    base = i * (n_regions + gap)
+    for j, region in enumerate(regions):
+        sub = sub_year[sub_year["Region"] == region]
+        if sub.empty:
+            continue
+        x = base + j
+        x_positions.append(x)
+        x_labels.append(region)
+        legal = sub["Legal_%"].values[0]
+        illegal = sub["Illegal_%"].values[0]
+        recovered = sub["Recovered_%"].values[0]
+        plt.bar(x, legal, color="#4c72b0")
+        plt.bar(x, illegal, bottom=legal, color="#ff7f0e")
+        plt.bar(x, recovered, bottom=legal+illegal, color="#55a868")
+        plt.text(x, legal/2, f"{legal:.1f}%", ha="center", va="center", fontsize=7, color="white")
+        plt.text(x, legal+illegal/2, f"{illegal:.1f}%", ha="center", va="center", fontsize=7, color="white")
+        plt.text(x, legal+illegal+recovered/2, f"{recovered:.1f}%", ha="center", va="center", fontsize=7, color="white")
+    year_center = base + (n_regions-1)/2
+    year_centers.append((year_center, year))
+plt.xticks(x_positions, x_labels, rotation=60, ha="right", fontsize=9)
+for xc, year in year_centers:
+    plt.text(xc, -8, str(year), ha="center", va="top", fontsize=11, fontweight="bold")
+legend_elements = [
+    Patch(facecolor="#4c72b0", label="Legal Disposal"),
+    Patch(facecolor="#ff7f0e", label="Illegal Disposal"),
+    Patch(facecolor="#55a868", label="Recovered")]
+plt.legend(handles=legend_elements, loc="upper left")
+plt.ylim(-10,100)
+plt.ylabel("Percentage (%)")
+plt.title("Thailand Waste Management Proportion by Region (%)", fontsize=14, fontweight='bold')
+plt.gca().set_facecolor("#e6f2ff")
+plt.grid(color='white', linestyle='--', linewidth=1)
+plt.figtext(0.99,0.01,"ที่มา: กรมควบคุมมลพิษ",ha="right",fontsize=10,style="italic",fontproperties=thai_font)
+plt.tight_layout()
+# path20 = os.path.expanduser("~/Desktop/Waste_By_Region.png")
+# plt.savefig(path20, dpi=300, bbox_inches="tight", facecolor="white")
 plt.close()
