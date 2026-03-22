@@ -1,4 +1,4 @@
-# Municipal-solid-waste: An indicator reflect inequality
+# Municipal-solid-waste: An indicator reflects inequality
 
 ## <mark> 1. The situation of municipal solid waste in Thailand
 
