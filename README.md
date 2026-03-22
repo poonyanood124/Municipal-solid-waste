@@ -149,3 +149,4 @@ https://envilink.go.th/en/dataset/trend_inbound_tourists
 https://www.rrcap.ait.ac.th/Publications/Waste_Management_in_ASEAN_Countries_Summary_Report.pdf
 5. กรมโรงงานอุตสาหกรรม (DIW) – ข้อมูลโรงงานอุตสาหกรรม
 https://www.diw.go.th/webdiw/static-fac
+6. สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ – ข้อมูล GPP  https://www.nesdc.go.th/info/gross-regional-and-provincial-product/
