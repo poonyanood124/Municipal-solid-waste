@@ -1,6 +1,7 @@
 # =========================================================
 # 1) IMPORT & SETUP
 # =========================================================
+from shlex import quote
 from matplotlib.patches import Patch
 import pandas as pd
 import seaborn as sns
@@ -10,6 +11,7 @@ import geopandas as gpd
 import os
 from io import BytesIO
 from matplotlib.font_manager import FontProperties
+from urllib.parse import quote
 
 sns.set_theme(style="darkgrid")
 thai_font = FontProperties(family="Sukhumvit Set")
@@ -40,6 +42,9 @@ base_url = "https://raw.githubusercontent.com/poonyanood124/Municipal-solid-wast
 url_legal = base_url + "waste_disposal_legal.xlsx"
 url_illegal = base_url + "waste_disposal_illegal.xlsx"
 url_recovery = base_url + "province_waste_recovery.xlsx"
+file_name = "พื้นที่รายจังหวัด.xlsx"
+encoded_name = quote(file_name)
+url = base_url + encoded_name
 
 region_map = {
     "เชียงใหม่":"North","เชียงราย":"North","ลำปาง":"North",
@@ -167,13 +172,20 @@ response1 = requests.get(url)
 response2 = requests.get(pop_url)
 excel_file = BytesIO(response1.content)
 pop_excel = BytesIO(response2.content)
+
+response = requests.get(url)
+response.raise_for_status()
+df = pd.read_excel(BytesIO(response.content))
+df["Region"] = df["Province"].map(region_map)
+df = df.dropna(subset=["Region"])
+region_area_calc = df.groupby("Region")["Area"].sum()
 region_area = {
-    "Northeast": 168854,
-    "North": 93691,
-    "Central": 91795,
-    "South": 70715,
-    "West": 53679,
-    "East": 34381
+    "Northeast": int(region_area_calc.get("Northeast", 0)),
+    "North": int(region_area_calc.get("North", 0)),
+    "Central": int(region_area_calc.get("Central", 0)),
+    "South": int(region_area_calc.get("South", 0)),
+    "West": int(region_area_calc.get("West", 0)),
+    "East": int(region_area_calc.get("East", 0))
 }
 
 def load_waste(year):
