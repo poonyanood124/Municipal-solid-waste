@@ -150,3 +150,4 @@ https://www.rrcap.ait.ac.th/Publications/Waste_Management_in_ASEAN_Countries_Sum
 5. กรมโรงงานอุตสาหกรรม (DIW) – ข้อมูลโรงงานอุตสาหกรรม
 https://www.diw.go.th/webdiw/static-fac
 6. สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ – ข้อมูล GPP  https://www.nesdc.go.th/info/gross-regional-and-provincial-product/
+7. สำนักงานสถิติจังหวัดนครสวรรค์ – ข้อมูลพื้นที่รายจังหวัด https://nksawan.nso.go.th/images/report/01size_of_area.pdf
