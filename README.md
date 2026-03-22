@@ -4,8 +4,8 @@
 
 <table>
   <tr>
-    <th>Graph 1: ASEAN Municipal Solid Waste per Capita</th>
-    <th>Graph 2: ASEAN Annual Municipal Solid Waste</th>
+    <th>Graph 1: ASEAN Municipal Solid Waste per Capita 2559 </th>
+    <th>Graph 2: ASEAN Annual Municipal Solid Waste 2559</th>
   </tr>
   <tr>
     <td><img src="assets/asean_msw_per_capita.png" width="100%"></td>
