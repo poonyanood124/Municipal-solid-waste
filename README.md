@@ -1,6 +1,6 @@
 # Municipal-solid-waste: An indicator reflect inequality
 
-## <mark> 1. สถานการณ์ขยะมูลฝอยในประเทศไทย
+## <mark> 1. The situation of municipal solid waste in Thailand
 
 <table>
   <tr>
@@ -63,7 +63,7 @@ Graph 4 Thailand MSW by Region
 
 เมื่อพิจารณาแยกรายจังหวัด พบว่า กรุงเทพฯ มีปริมาณขยะมูลฝอยเฉลี่ยตั้งแต่ปีพ.ศ.2563-2567 มากที่สุด และปริมาณดังกล่าวเป็นปริมาณที่มากอย่างมีนัยสำคัญเมื่อเทียบกับจังหวัดอื่น (ปริมาณขยะมูลฝอยรวมเฉลี่ยประมาณ 4.60 ล้านตันต่อปี) สอดคล้องกับภาคกลางที่มีปริมาณขยะมูลฝอยมากที่สุด แต่ปริมาณเพิ่มขึ้นเล็กน้อย ค่อนข้างทรงตัว ดังแสดงในกราฟที่ 7 รองลงมาจะเป็นชลบุรี สมุทรปราการ นครราชสีมา และนนทบุรี (ปริมาณขยะมูลฝอยรวมเฉลี่ยอยู่ในช่วง 0.70-1.30 ล้านตันต่อปี) ในขณะที่กราฟที่ 8 แสดงจังหวัดตราด สมุทรสงคราม สิงห์บุรี อุทัยธานี และแม่ฮ่องสอน มีปริมาณขยะมูลฝอยน้อยที่สุด (ปริมาณขยะมูลฝอยรวมเฉลี่ย 0.50-0.90 ล้านตันต่อปี) จึงจะเห็นได้ว่าปริมาณขยะมูลฝอยที่เกิดขึ้นมีความต่างกันหลายเท่าระหว่างจังหวัด
 
-## <mark> 2. ปัจจัยที่คาดการณ์ว่าส่งผลต่อปริมาณขยะในประเทศไทย
+## <mark> 2. Factors expected to influence the volume of municipal solid waste in Thailand
 Graph 9 Population, GPP, Factory and Tourist vs Waste by Region (2566)
 ![ASEAN MSW](assets/Waste_vs_Economic_Factors_by_Region_(2566)_v2.png)
 <sub>
@@ -78,7 +78,7 @@ Graph 9 Population, GPP, Factory and Tourist vs Waste by Region (2566)
 
 จากการวิเคราะห์เบื้องต้น พบว่า ผลิตภัณฑ์มวลรวมจังหวัดและจำนวนประชากรเป็นปัจจัยสำคัญที่ทำให้เกิดขยะมูลฝอย จำนวนนักท่องเที่ยวเป็นปัจจัยหนึ่งที่มีส่วนในการสร้างขยะมูลฝอยเพิ่มขึ้น แต่จำนวนโรงงานไม่ได้ส่งผลต่อปริมาณขยะมูลฝอยอย่างมีนัยสำคัญ
 
-## <mark> 3. กำลังในการกำจัดขยะมูลฝอยและปริมาณขยะมูลฝอยตกค้าง
+## <mark> 3. Municipal solid waste disposal capacity and the amount of residual waste
 
 Graph 10 Annual waste disposal capacity
 ![ASEAN MSW](assets/annual_waste_disposal_capacity.png)
@@ -101,7 +101,7 @@ Graph 11 Residual waste map
 
 จากกราฟที่ 12 พบว่า สมุทรปราการเป็นจังหวัดที่มีปริมาณขยะมูลฝอยตกค้างมากที่สุด โดยเริ่มมีปริมาณเพิ่มขึ้นและต่างจากจังหวัดอื่นอย่างชัดเจนตั้งแต่ปี 2566 (มาอยู่ที่ 20 ล้านตันโดยประมาณ) สืบเนื่องมาจนถึงปี 2567 ทั้งที่มีความสามารถในการกำจัดขยะมูลฝอย (ตามกราฟที่ 13) ใกล้เคียงกับปริมาณขยะมูลฝอยที่เกิดขึ้น จึงคาดว่าจังหวัดสมุทรปราการอาจเป็นแหล่งรองรับขยะมูลฝอยปริมาณมากจากจังหวัดอื่นหรือเกิดปัญหาต่อระบบกำจัดขยะ สะท้อนให้เห็นถึงปัญหาด้านการบริหารจัดการ
 
-## <mark> 4. ปริมาณขยะที่ถูกกำจัดอย่างถูกต้อง, กำจัดอย่างไม่ถูกต้อง และนำกลับมาใช้ประโยชน์
+## <mark> 4. The amounts of properly disposed, improperly disposed, and recycled waste
 Graph 14 Thailand Waste Management Proportion
 ![ASEAN MSW](assets/Waste_By_Region.png)
 <sub>
@@ -110,7 +110,7 @@ Graph 14 Thailand Waste Management Proportion
 
 จากกราฟที่ 14 โดยรวม ภาคกลางและตะวันออกมีการกำจัดขยะมูลฝอยอย่างถูกต้องเหมาะสมเป็นส่วนใหญ่ ประมาณร้อยละ 50-60 ในขณะที่ภาคเหนือ ตะวันออกเฉียงเหนือ และใต้มีการกำจัดขยะมูลฝอยอย่างไม่ถูกต้องค่อนข้างมาก ประมาณร้อยละ 30-40 เสี่ยงต่อการเกิดปัญหาด้านสิ่งแวดล้อม แต่แม้จะมีสัดส่วนการกำจัดขยะที่ไม่ถูกต้องสูง แต่สัดส่วนการนำขยะมูลฝอยกลับมาใช้ประโยชน์มีมากเช่นกัน ทั้งนี้ ในส่วนของภาคกลางมีการกำจัดขยะมูลฝอยอย่างถูกต้องและการนำกลับมาใช้ประโยชน์ในสัดส่วนที่สูงอย่างต่อเนื่อง โดยมีสัดส่วนการกำจัดขยะมูลฝอยอย่างไม่ถูกต้องค่อนข้างน้อย สะท้อนให้เห็นถึงระบบการกำจัดขยะที่ดีกว่าเมื่อเทียบกับภาคอื่นๆ
 
-## <mark> 5. ปริมาณขยะมูลฝอยตกค้างเมื่อเทียบกับปริมาณขยะมูลฝอยที่เกิดขึ้น
+## <mark> 5. Residual municipal solid waste compared to waste generation
 Graph 15 Residual Waste vs Waste Generated
 ![ASEAN MSW](assets/Residual_Waste_vs_Waste_Generated_by_Region_(2563–2567)_v2.png)
 
@@ -139,8 +139,13 @@ Utilization (%) = ปริมาณขยะที่ผลิต / กำล�
 จากการวิเคราะห์เบื้องต้น พบว่า ภาคตะวันออกมีระบบและโครงสร้างการจัดการขยะมูลฝอยที่สมดุลที่สุด อาจทำการศึกษาเพิ่มเติมในเชิงลึก เพื่อหาปัจจัยที่เกี่ยวข้องและความสัมพันธ์ระหว่างปัจจัยต่างๆ เพื่อสร้างและพัฒนาเป็นโมเดลต้นแบบในการจัดการขยะมูลฝอย ให้สามารถนำไปปรับใช้กับภูมิภาคอื่นๆ ได้จริง และเกิดการจัดการขยะมูลฝอยอย่างมีประสิทธิภาพทั่วประเทศ
 
 ## <mark>Source 
-1. https://pcd.gdcatalog.go.th/th/dataset/_13_06](https://pcd.gdcatalog.go.th/dataset/dataset_31_01
-2. https://stat.bora.dopa.go.th/stat/statnew/statMONTH/statmonth/#/mainpage
-3. https://envilink.go.th/en/dataset/trend_inbound_tourists
-4. https://www.rrcap.ait.ac.th/Publications/Waste_Management_in_ASEAN_Countries_Summary_Report.pdf
-5. https://www.diw.go.th/webdiw/static-fac
+1. กรมควบคุมมลพิษ (PCD) – ข้อมูลขยะมูลฝอยที่เกิดขึ้น,ขยะมูลฝอยตกค้าง,และสถานที่กำจัดขยะมูล 
+https://pcd.gdcatalog.go.th/dataset/dataset_31_01
+2. กรมการปกครอง (DOPA) – ข้อมูลสถิติประชากร
+https://stat.bora.dopa.go.th/stat/statnew/statMONTH/statmonth/#/mainpage
+3. ENVILINK (สถาบันสิ่งแวดล้อมไทย) – ข้อมูลสถิตินักท่องเที่ยวขาเข้า
+https://envilink.go.th/en/dataset/trend_inbound_tourists
+4. ศูนย์ทรัพยากรภูมิภาคเอเชียและแปซิฟิก (AIT RRCAP) – รายงานการจัดการขยะในประเทศอาเซียน
+https://www.rrcap.ait.ac.th/Publications/Waste_Management_in_ASEAN_Countries_Summary_Report.pdf
+5. กรมโรงงานอุตสาหกรรม (DIW) – ข้อมูลโรงงานอุตสาหกรรม
+https://www.diw.go.th/webdiw/static-fac
