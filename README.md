@@ -1,4 +1,4 @@
-# Municipal-solid-waste: An indicator reflecting inequality
+# Municipal-solid-waste: An indicator reflect inequality
 
 ## <mark>The expansion of municipal solid waste
 
